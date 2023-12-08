@@ -1,0 +1,16 @@
+$c-orange:#F37021;
+$c-black:#000;
+$c-white:#fff;
+$f-gsk:'gskprecision',Arial,Helvetica,Sans-serif;
+.box-shadow{box-shadow: 0px 4px 22px 0px rgba(163, 163, 163, 0.25);}
+.border-radius-content{border-radius: 100px;padding: 9px 19px;
+    p{margin-bottom: 0;color:$c-white;font-size: toRem(14);text-align: center;}
+
+    @media(max-width:767px){
+        border-radius: 0;text-align:center;
+        padding-left: 9%;padding-right: 9%;
+        p{font-size: toRem(15);}
+    }
+}
+.bg-orange{background-color: $c-orange !important;}
+.color-white{color: $c-white !important;}

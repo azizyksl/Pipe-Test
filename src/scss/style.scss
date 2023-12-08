@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+// vendors
+@import 
+	// url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"),
+	//"https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap",
+	// "./../../node_modules/bootstrap/scss/bootstrap.scss",
+	"./vendors/bootstrap_custom",
+	"./vendors/fonts",
+	//"./vendors/lightgallery-min",
+
+	"./../../node_modules/aos/src/sass/aos.scss";
+	//"./../../node_modules/slick-carousel/slick/slick.scss";
+	
+// utilities 
+// Sass Variables, Functions, Mixins etc.
+@import 
+	
+	"./utilites/functions",
+	"./utilites/variables",
+	"./utilites/font-sizes";
+	//"./utilites/typo";
+
+//base
+// ... Reset/normalize, Typography rules etc.
+@import 
+	"./base/base",
+	"./base/sticky-footer";
+
+// layout
+@import 
+	"./layout/header",
+	"./layout/nav",
+	"./layout/footer";
+
+//components
+// ... Buttons, Carousel, Slider etc.
+@import
+	"./components/tables",
+	"./components/lists",
+	"./components/buttons",
+	"./components/forms",
+	"./components/accordion";
+
+
+//pages
+// ... pages specific styles
+@import
+	"./pages/home",
+	"./pages/subs";
+
+// themes
+

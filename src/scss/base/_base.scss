@@ -1,0 +1,17 @@
+body{
+    font-family: $f-gsk;
+    font-weight: 400;
+    position: relative;
+    &::after{
+        position: absolute;
+        bottom:0;
+        min-height: 100%;
+        left: 0;
+        content:"";width: 100%;
+        background: url('../images/nexus-pattern-bg.svg') no-repeat center -100%;
+        z-index: 0;
+        @media(max-width:767px){
+            background-position: center 240%;
+        }
+    }
+}

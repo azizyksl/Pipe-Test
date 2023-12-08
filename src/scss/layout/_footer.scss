@@ -1,0 +1,22 @@
+footer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    z-index: 9;
+    font-weight: 300;
+    font-size: toRem(13);
+    padding: 20px 0;
+    .footLogo{position: absolute;right: 55px; bottom:10px;
+        @media(max-width: 1100px){
+            position: relative;left:0;bottom:0;margin-bottom: 15px;
+        }
+    }
+    p{max-width: 800px;color:$c-black;
+        a{color: $c-black;transition: .4s;}
+    }
+    @media(max-width: 1100px){
+        padding:60px 20px;
+    }
+}

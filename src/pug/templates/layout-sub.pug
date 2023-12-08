@@ -1,0 +1,28 @@
+//- 
+include ../includes/general-variables.pug
+block variables
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title NEXUS - #{title}
+		link(rel="shortcut icon", href= images + "/sport_soccer.png", type="image/x-icon")
+		link(rel="shortcut icon", href= assets + "/images/favicon.png", type="image/png")
+		//- link(rel="shortcut icon", href= assets + "/images/favicon-16x16.ico", type="image/png")
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,300&family=Noto+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+		meta(name="description", content= desc)
+		meta(name="keywords", content= keywords)
+		link(rel="stylesheet", href= assets + "/styles/style.css")
+	body#pagetop(data-role= pageRole)
+		main
+			block header
+			block content
+			
+		include ../includes/footer.pug
+		script(src='./../assets/scripts/app.js')
+		block scripts

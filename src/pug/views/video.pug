@@ -1,0 +1,46 @@
+//- page-a.pug
+
+extends ../templates/layout.pug
+
+block variables
+	-var title = "Video"
+	-var desc = "video Page"
+	-var keywords = "video,Page"
+	-var pageRole = "video"
+	
+
+block header 
+	include ../includes/header.pug
+
+
+block content 
+	#popupContent 
+		div
+			.popupMain
+				a(href="javascript:;",class="popupClose")
+					img(src=images+"close-icon.svg", alt="") 
+				.popupInner
+					.popupHead 
+						img(src="", alt="")
+						h2 
+					.popupBody 
+					.popupFooter 
+						.footTextAppend
+						.buttonsAppend
+
+	section 
+		.container 
+			.row 
+				.offset-md-2.col-md-8
+					.countryList
+						video(controls autoplay)
+							source(src="https://gsk-nexus.s3.eu-north-1.amazonaws.com/gsk-nexus-video.mp4", type="video/mp4")
+						ul
+							li 
+								a(href="/",class="bg-orange color-white")
+											span.text-center Go Back
+							
+block scripts
+	script. 
+		//- alert();
+		

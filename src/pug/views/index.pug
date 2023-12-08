@@ -1,0 +1,111 @@
+//- page-a.pug
+
+extends ../templates/layout.pug
+
+block variables
+	-var title = "Home"
+	-var desc = "Home Page"
+	-var keywords = "Home,Page"
+	-var pageRole = "home"
+	
+
+block header 
+	include ../includes/header.pug
+
+
+block content 
+	#popupContent 
+		div
+			.popupMain
+				a(href="javascript:;",class="popupClose")
+					img(src=images+"close-icon.svg", alt="") 
+				.popupInner
+					.popupHead 
+						img(src="", alt="")
+						h2 
+					.popupBody 
+					.popupFooter 
+						.footTextAppend
+						.buttonsAppend
+
+	section 
+		summary To access Prescribing Information please select your country
+		div.border-radius-content.bg-orange.offset-md-2.col-md-8
+			p For reference purpose only; follow your Prescribing Information (PI) indications as mandated by local regulations.
+		.container 
+			.row 
+				.offset-md-2.col-md-8
+					.countryList.pt-3
+						.row 
+							.col-lg-4 
+								ul 
+									li 
+										a(href='javascript:;',data-popup-content='<p>La información para prescribir de nuestros productos se encuentra disponible escaneando el código QR o ingresando en: <a href="https://gskpro.com/es-ar/productos/" target="_blank">https://gskpro.com/es-ar/productos/</a></p><p>Para mayor información de nuestros productos o solicitar información médica puede ingresar en: <a href="https://gskpro.com/es-ar/" target="_blank">https://gskpro.com/es-ar/</a></p><p>Para reportar eventos adversos de nuestros productos envíe un mail <a href="mailto:WW.GSKAEReportingAmericas@gsk.com" target="_blank">WW.GSKAEReportingAmericas@gsk.com</a></p><p>GSK BIOPHARMA ARGENTINA S.A. – Av. Del Libertador 7202, Piso 4 (1429) – Ciudad de Buenos Aires</p><p>Este material está destinado para el uso exclusivo de los médicos/profesionales de la salud</p>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/es_AR/pdfs/homepage/products/Nucala/PI-Nucala-AI-Argentina.pdf" target="_blank"><span>Nucala Polvo</span> <img src="assets/images/white-arrow.svg" /></a><a class="button" href="https://gskpro.com/content/dam/global/hcpportal/es_AR/pdfs/homepage/products/Nucala/ip_nucala_fda-sptiembre-2019.pdf" target="_blank"><span>Nucala Solucion Inyectable</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below buttons for each product.</p>") 
+											img(src=images+"argentina.svg", alt="")
+											span Argentina 
+											img(src=images+"arrow-icon.svg", alt="")
+									li 
+										a(href='javascript:;',data-popup-content='<p>To report Adverse Event/s associated with the use of GSK product/s, please contact us via <a target="_blank" href="mailto:gulf.safety@gsk.com">gulf.safety@gsk.com</a>.</p><p>To report quality complaint/s associated with the use of GSK product/s, please contact us via <a target="_blank" href="mailto:Gulf.ProductQualityComplaints@gsk.com">Gulf.ProductQualityComplaints@gsk.com</a></p><p>For more information, please refer to the prescribing information or contact GlaxoSmithKline via <a target="_blank" href="mailto:gcc.medinfo@gsk.com">gcc.medinfo@gsk.com</a>.</p>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/pi_nucala_uae_oman_qatar_kuwait_and_bahrain_pi_9494.pdf" target="_blank"><span>Nucala Vial</span> <img src="assets/images/white-arrow.svg" /></a><a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/updated_nucala_pi_for_triple_therapy_indication_uae_oman_bahrain_and_qatar_july_23.pdf" target="_blank"><span>Nucala PFP/PFS</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below buttons for each product.</p>") 
+											img(src=images+"bahrain.svg", alt="")
+											span Bahrain 
+											img(src=images+"arrow-icon.svg", alt="")
+									li 
+										a(href='javascript:;',data-popup-content='<p>Este material é de propriedade da GSK, a reprodução deste é proibida sem o consentimento da empresa.</p><p>Informação destinada exclusivamente para profissionais de saúde habilitados a prescrever ou dispensar medicamentos.</p><p>Recomenda-se a leitura da bula do produto, antes da prescrição de qualquer medicamento/vacina.</p><p>Mais informações à disposição, sob solicitação ao Departamento de Informações Médicas (DDG 0800 701 2233 ou <a href="mailto:medinfo@gsk.com" target="_blank">medinfo@gsk.com</a>).</p><p>Para notificar informações de segurança, incluindo eventos adversos, ocorridos durante o uso de medicamentos/vacinas da GSK, entre em contato diretamente com o Departamento de Farmacovigilância da empresa pelo e-mail <a href="mailto:farmacovigilancia@gsk.com" target="_blank">farmacovigilancia@gsk.com</a> ou através do representante do grupo de empresas GSK. As marcas registradas pertencem ou são licenciadas ao grupo de empresas GSK.</p>',data-popup-buttons='<a class="button" href="https://br.gsk.com/media/6289/nucala-solu%C3%A7%C3%A3o-injet%C3%A1vel.pdf" target="_blank"><span>Nucala Caneta Aplicadora</span> <img src="assets/images/white-arrow.svg" /></a><a class="button" href="https://br.gsk.com/media/7579/nucala-p%C3%B3-liofilizado.pdf" target="_blank"><span>Nucala Pó Liofilizado</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below buttons for each product.</p>") 
+											img(src=images+"brazil.svg", alt="")
+											span Brazil
+											img(src=images+"arrow-icon.svg", alt="")
+									li 
+										a(href='javascript:;',data-popup-content='<p>La información para prescribir completa de nuestros productos se encuentra disponible en nuestras páginas web: <br>Chile: <a target="_blank" href="http://www.gskpro.com/es-cl/productos">www.gskpro.com/es-cl/productos</a><br>Mayor información de nuestros productos disponible a través de nuestro servicio de información médica: <a  target="_blank" href="mailto:mila@gsk.com">mila@gsk.com</a>.<br>Para reportar eventos adversos o quejas de producto contacte a GSK a los teléfonos/e-mail:<br>Chile: (56-2) 2382 9000 opción 4 o al correo electrónico <a target="_blank" href="mailto:farmacovigilancia.chile@gsk.com">farmacovigilancia.chile@gsk.com</a>.<br>Direcciones:<br>GlaxoSmithKline Chile Ltda.: Av. Andrés Bello 2457 - Piso 20 (Oficinas 2001, 2003 y 2004), Providencia, Santiago.<br>Material exclusivo para entregar a profesionales de la salud que están habilitados a prescribir y/o dispensar en Chile.<br>Derechos reservados para GSK. La reproducción completa o parcial de este material está prohibida.</p>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/es_CL/PDFs/Homepage/products/Nucala/CL_IP_Nucala.pdf" target="_blank"><span>Nucala</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below button.</p>") 
+											img(src=images+"chile.svg", alt="")
+											span Chile
+											img(src=images+"arrow-icon.svg", alt="")
+							.col-lg-4 
+								ul
+									li 
+										a(href='javascript:;',data-popup-content='<p>Información para prescribir completa disponible a solicitud| Referencia(s) disponible(s) a solicitud</p><p>Material exclusivo para profesionales de la salud.</p><p>Si usted desea mayor información o reportar una situación clínica desfavorable ocurrida durante el uso de un producto de GlaxoSmithKline, favor comunicarse al teléfono 01 8000 11 86 86 o escribir al correo electrónico: <a href="mailto:programa.dirmedica@gsk.com">programa.dirmedica@gsk.com</a></p><p>GlaxoSmithKline Colombia S.A., Calle 26 # 69B-45 Edificio Bogotá Corporate Center Piso 9</p><p>Solicite mayor información científica de nuestros productos en nuestro servicio de información médica, a través del email mila@gsk.com</p><p>Material elaborado por GSK.</p><p>Nucala (Mepolizumab) 100mg POLVO PARA SOLUCIÓN INYECTABLE Registro Sanitario No: INVIMA 2019M-0018922 | Nucala Pluma (mepolizumab) solución inyectable 100mg/mL Registro sanitario No: INVIMA 2022MBT-0000061 |  POLVO PARA  2019M-0019227</p>',data-popup-buttons='<a class="button" href="https://gskpro.com/es-co/login/login-link.html/?resource=%2Fcontent%2Fdam%2Fglobal%2Fhcpportal%2Fes_CO%2Fprotected%2Fproducts%2Fpdfs%2Fnucala%2FInformacion-para-prescribir-Nucala.pdf" target="_blank"><span>Nucala</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below button.</p>") 
+											img(src=images+"colombia.svg", alt="")
+											span Colombia
+											img(src=images+"arrow-icon.svg", alt="")
+									li
+										a(href='javascript:;',data-popup-content='<p>To report Adverse Event/s associated with the use of GSK product/s, please contact us via <a href="mailto:saudi.safety@gsk.com" target="_blank">saudi.safety@gsk.com</a></p><p>For more information, please refer to the prescribing information or contact GlaxoSmithKline via <a href="mailto:gcc.medinfo@gsk.com" target="_blank">gcc.medinfo@gsk.com</a></p><p>To report the Quality related product complaint/s associated with the use of GSK product/s, please contact us via <a href="mailto:ksa.productqualitycomplaint@gsk.com" target="_blank">ksa.productqualitycomplaint@gsk.com</a></p><p>For Healthcare Professionals Only</p><h3>NUCALA Safety Information</h3><p>Contraindications: Hypersensitivity to mepolizumab or to any of the excipients.</p><h3>Adverse reactions:</h3><p>Adverse reactions with Nucala with ≥3% incidence and more common than placebo in patients with severe asthma (in the 2 confirmatory efficacy and safety trials): headache, injection site reaction, back pain, fatigue, influenza, urinary tract infection, abdominal pain upper, pruritus, eczema, muscle spasms.</p><p>Adverse reactions with Nucala with ≥3% of NUCALA-treated patients and more frequently than in patients treated with placebo in the CRSwNP trial: oropharyngeal pain, arthralgia, abdominal pain, upper, diarrhea, pyrexia, nasal dryness, rash.</p><p>Adverse reactions that occurred more frequently than in patients treated with placebo in the EGPA trial: systemic (allergic and non-allergic) reactions, injection site reactions.</p><p>Adverse reactions that occurred more frequently than in patients treated with placebo in the HES trial: injection site reactions.</p><h3>Nucala lyophilized powder:</h3><p>- Very common (≥1/10): headache.<br>- Common (≥1/100 to < 1/10): lower respiratory tract infection, urinary tract infection.<br><strong>Reference</strong>: 1. Nucala (solution for injection in a pre-filled pen) local prescribing information based on US CPI version 29 July 2021; 2. Nucala (solution for injection in a pre-filled syringe) local prescribing information based on US CPI version 29 July 2021. 3. Nucala (powder for solution for injection) local prescribing information GDS12/IPI12.</p>',data-popup-buttons='<a class="button" href="https://assets.gskinternet.com/pharma/GSKpro/Saudi/Nucala/nucala_updated_saudi_spc_2021.pdf" target="_blank"><span>Nucala Pre-filled Pen</span> <img src="assets/images/white-arrow.svg" /></a><a class="button" href="https://assets.gskinternet.com/pharma/GSKpro/Saudi/Nucala/nucala_pfs_spc_version_29_07_2021.pdf" target="_blank"><span>Nucala Pre-filled Syringe</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below buttons for each product.</p>") 
+											img(src=images+"saudi-arabia.svg", alt="")
+											span KSA	
+											img(src=images+"arrow-icon.svg", alt="")
+									li
+										a(href='javascript:;',data-popup-content='<p>To report Adverse Event/s associated with the use of GSK product/s, please contact us via <a target="_blank" href="mailto:gulf.safety@gsk.com">gulf.safety@gsk.com</a>.</p><p>To report quality complaint/s associated with the use of GSK product/s, please contact us via <a href="mailto:Gulf.ProductQualityComplaints@gsk.com" target="_blank">Gulf.ProductQualityComplaints@gsk.com</a></p><p>For more information, please refer to the prescribing information or contact GlaxoSmithKline via <a href="mailto:gcc.medinfo@gsk.com" target="_blank">gcc.medinfo@gsk.com</a>.</p>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/pi_nucala_uae_oman_qatar_kuwait_and_bahrain_pi_9494.pdf" target="_blank"><span>Nucala Vial</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below button.</p>") 
+											img(src=images+"kuwait.svg", alt="")
+											span Kuwait
+											img(src=images+"arrow-icon.svg", alt="")
+									li
+										a(href='javascript:;',data-popup-content='<p>Para consultar la información para prescribir favor de dirigirse al sitio www.gskpro.com.mx. También puede solicitarla al teléfono 1800 APOYAME (276-9263) o directamente al representante médico que lo visita.</p><p>Este micrositio está destinado a México. Exclusivo para profesionales de la salud.</p><p>Su privacidad es importante para nosotros. Por favor, lea nuestra política de privacidad.</p><p>La información existente en este mensaje y en los archivos/ligas anexos es para uso exclusivo de profesionales de la salud.</p><p>En caso de que usted no sea el destinatario, la lectura, divulgación, reproducción, distribución o copia del contenido de éste mensaje están prohibidas y podría generar acción legal en su contra. Si usted ha recibido esta comunicación por error, por favor notifíquenoslo inmediatamente  a <a href="mailto:mx.contacto@gsk.com" target="_blank">mx.contacto@gsk.com</a></p><p> Si necesita más asistencia, comuníquese al 800 276 9263 o bien en nuestro correo electrónico: <a href="mailto:mx.contacto@gsk.com" target="_blank">mx.contacto@gsk.com</a>.</p><p>México, S.A. de C.V. Avenida Real Mayorazgo, No. exterior 130, No. Interior Piso 20, Colonia Xoco,</p><p>Alcaldía Benito Juárez,<br>CP 03330, Ciudad de México. Página web de GSK para profesionales de la salud: <a target="_blank" href="http://gskpro.com/es-mx">gskpro.com/es-mx</a></p>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/es_MX/unprotected/products/Nucala/Pdf/IPP-A-Nucala-GDS05_IPI05-02-Jun-2016.pdf" target="_blank"><span>Nucala Solucion</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>Información para prescribir amplia (IPPA)</h3><p>Para ver o descargar la IPPA dar clic en el botón</p>") 
+											img(src=images+"mexico.svg", alt="")
+											span Mexico
+											img(src=images+"arrow-icon.svg", alt="")
+							.col-lg-4 
+								ul
+									li
+										a(href='javascript:;',data-popup-content='<p>For more information, please refer to the prescribing information or contact GlaxoSmithKline via <a target="_blank" href="mailto:gcc.medinfo@gsk.com.">gcc.medinfo@gsk.com.</a></p><p>To report Adverse Event/s associated with the use of GSK product/s, please contact us via <a href="mailto:gulf.safety@gsk.com" target="_blank">gulf.safety@gsk.com</a></p><p>To report quality complaint/s associated with the use of GSK product/s, please contact us via <a target="_blank" href="mailto:Gulf.ProductQualityComplaints@gsk.com">Gulf.ProductQualityComplaints@gsk.com</a>.</p><table><tbody><tr><td><p>Department of Pharmacovigilance &amp; Drug Information</p></td><td></td><td align="right" style="text-align:right"><p> داﺋرة اﻟﺗﯾﻘظ و اﻟﻣﻌﻠوﻣﺎت اﻟدواﺋﯾﺔ</p></td></tr><tr><td><p>Directorate General of Pharmaceutical <br>Affairs &amp; Drug Control</p> </td><td></td><td align="right" style="text-align:right"><p> اﻟﻣدﯾرﯾﺔ اﻟﻌﺎﻣﺔ ﻟﻠﺻﯾدﻟﺔ و اﻟرﻗﺎﺑﺔ اﻟدواﺋﯾﺔ</p></td></tr><tr><td><p>Ministry of Health, Sultanate of Oman</p> </td><td></td><td align="right" style="text-align:right"><p> وزارة اﻟﺻﺣﺔ, ﺳﻠطﻧﺔ ﻋﻣﺎن</p></td></tr><tr><td><p>Phone Nos.</p></td><td><p>0096822357687 / 0096822357686</p></td><td align="right" style="text-align:right"> <p> هاتف</p>    </td></tr><tr><td><p>Fax</p><p></p></td><td><p>0096822358489</p></td><td align="right" style="text-align:right"><p>ﻓﺎﻛس </p></td></tr><tr><td><p>Email</p> </td><td><p><a href="mailto:pharma-vigil@moh.gov.om">pharma-vigil@moh.gov.om</a></p></td><td align="right" style="text-align:right"><p>البريد الالكتروني </p> </td></tr><tr><td><p>Website</p> </td><td><p><a href="https://www.moh.gov.om" target="_blank">www.moh.gov.om</a></p></td><td align="right" style="text-align:right"><p>الموقع الالكتروني<p> </td></tr></tbody></table>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/pi_nucala_uae_oman_qatar_kuwait_and_bahrain_pi_9494.pdf" target="_blank"><span>Nucala Vial</span> <img src="assets/images/white-arrow.svg" /></a><a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/updated_nucala_pi_for_triple_therapy_indication_uae_oman_bahrain_and_qatar_july_23.pdf" target="_blank"><span>Nucala PFP/PFS</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below buttons for each product.</p>") 
+											img(src=images+"oman.svg", alt="")
+											span Oman
+											img(src=images+"arrow-icon.svg", alt="")
+									li
+										a(href='javascript:;',data-popup-content='<p>To report Adverse Event/s associated with the use of GSK product/s, please contact us via <a href="mailto:gulf.safety@gsk.com" target="_blank">gulf.safety@gsk.com</a>.</p><p>To report quality complaint/s associated with the use of GSK product/s, please contact us via <a target="_blank" href="mailto:Gulf.ProductQualityComplaints@gsk.com">Gulf.ProductQualityComplaints@gsk.com</a></p><p>This email is intended for Gulf countries healthcare professionals only.</p><p>For more information, please refer to the prescribing information or contact GlaxoSmithKline via <a href="mailto:gcc.medinfo@gsk.com" target="_blank">gcc.medinfo@gsk.com</a>.</p>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/pi_nucala_uae_oman_qatar_kuwait_and_bahrain_pi_9494.pdf" target="_blank"><span>Nucala Vial</span> <img src="assets/images/white-arrow.svg" /></a><a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/updated_nucala_pi_for_triple_therapy_indication_uae_oman_bahrain_and_qatar_july_23.pdf" target="_blank"><span>Nucala PFP/PFS</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below buttons for each product.</p>") 
+											img(src=images+"qatar.svg", alt="")
+											span Qatar
+											img(src=images+"arrow-icon.svg", alt="")
+									li
+										a(href='javascript:;',data-popup-content='<p>To report Adverse Event/s associated with the use of GSK product/s, please contact us via <a href="mailto:gulf.safety@gsk.com" target="_blank">gulf.safety@gsk.com</a>.</p><p>To report quality complaint/s associated with the use of GSK product/s, please contact us via  <a href="mailto:Gulf.ProductQualityComplaints@gsk.com" target="_blank">Gulf.ProductQualityComplaints@gsk.com</a></p><p>This email is intended for Gulf countries healthcare professionals only.</p><p>For more information, please refer to the prescribing information or contact GlaxoSmithKline via <a href="mailto:gcc.medinfo@gsk.com" target="_blank">gcc.medinfo@gsk.com</a>.</p>',data-popup-buttons='<a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/pi_nucala_uae_oman_qatar_kuwait_and_bahrain_pi_9494.pdf" target="_blank"><span>Nucala Vial</span> <img src="assets/images/white-arrow.svg" /></a><a class="button" href="https://gskpro.com/content/dam/global/hcpportal/en_XG/products/nucala_mt/pdf/updated_nucala_pi_for_triple_therapy_indication_uae_oman_bahrain_and_qatar_july_23.pdf" target="_blank"><span>Nucala PFP/PFS</span> <img src="assets/images/white-arrow.svg" /></a>', data-footbutton-text="<h3>For Prescribing Information</h3><p>To view or download click on the below buttons for each product.</p>") 
+											img(src=images+"uae.svg", alt="")
+											span UAE 
+											img(src=images+"arrow-icon.svg", alt="")
+							.col-lg-12
+								ul 
+									li
+										a(href="javascript:;",class="videoButton bg-orange color-white",data-popup-content="<video controls autoplay><source src='https://gsk-nexus.s3.eu-north-1.amazonaws.com/gsk-nexus-video.mp4' type='video/mp4'></video>")
+											span.text-center Watch Nexus Video
+
+							
+block scripts
+	script. 
+		//- alert();
+		

@@ -66,9 +66,6 @@ jobs:
           # Set up Kubernetes configuration
           echo "$KUBE_CONFIG_DATA" | base64 --decode > kubeconfig.yaml
           export KUBECONFIG=$PWD/kubeconfig.yaml
-
-          # Clone the repository containing deployment.yaml from a different repository
-          git clone https://github.com/$KUBE_DEPLOYMENT_REPO.git deployment-repo
           
           # Deploy to Kubernetes using kubectl
           kubectl apply -f deployment.yaml

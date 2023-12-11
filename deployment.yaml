@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: githubactions
-          image: gcr.io/fcbhealthreaktor/githubactions:#{buildid}#
+          image: gcr.io/fcbhealthreaktor/githubactions:latest
           ports:
             - containerPort: 80
           resources:
@@ -22,8 +22,8 @@ spec:
               cpu: 256m
               memory: 512Mi
             requests:
-              cpu: 256m
-              memory: 512Mi
+              cpu: 50m
+              memory: 128Mi
           readinessProbe:
             httpGet:
               path: /

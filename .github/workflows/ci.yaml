@@ -4,8 +4,7 @@ on:
  
   push:
     branches:
-      - master
-      - dev
+      - test
 
 jobs:
   build-and-deploy:

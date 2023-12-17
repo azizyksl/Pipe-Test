@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: githubactions
-          image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:${{ env.IMAGE_TAG }}
+          image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:{{ .Values.image.tag }}
           ports:
             - containerPort: 80
           resources:

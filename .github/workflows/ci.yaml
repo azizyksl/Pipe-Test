@@ -61,39 +61,4 @@ jobs:
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"
         git push     
-        
-  deploy-to-kubernetes-dev:
-    name: Deploy to DEV
-    runs-on: ubuntu-latest
-    needs: build-and-deploy  # Wait for the build-and-deploy job to complete
-    if: github.ref == 'refs/heads/test'
-    environment: dev
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-          aws-profile: cryptov2
-
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Deploy to Kubernetes
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: githubactions
-          IMAGE_TAG: ${{ github.sha }}
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-        run: |
-          # Set up Kubernetes configuration
-          echo "$KUBE_CONFIG_DATA" | base64 --decode > kubeconfig.yaml
-          export KUBECONFIG=$PWD/kubeconfig.yaml
-          
-          # Deploy to Kubernetes using kubectl
-          kubectl apply -f chart/templates/deployment.yaml 
+       

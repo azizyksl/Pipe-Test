@@ -64,7 +64,7 @@ jobs:
         new_image_tag=${{ github.sha }}
 
         # Update the Deployment file with the new image tag
-        sed -i "s|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:.*$|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:$new_image_tag|" "githubactions.yaml"
+        sed -i "s|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:.*$|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:$new_image_tag|" "dev/githubactions.yaml"
         
     - name: Commit the changes made
       run: |

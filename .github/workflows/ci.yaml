@@ -94,4 +94,4 @@ jobs:
           export KUBECONFIG=$PWD/kubeconfig.yaml
           
           # Deploy to Kubernetes using kubectl
-          kubectl apply -f deployment.yaml 
+          kubectl apply -f chart/templates/deployment.yaml 

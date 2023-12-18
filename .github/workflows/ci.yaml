@@ -4,7 +4,7 @@ on:
  
   push:
     branches:
-      - test
+      - deneme
 
 jobs:
   build-and-deploy:
@@ -23,7 +23,6 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-1
-        aws-profile: cryptov2
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -46,7 +45,20 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v2
-
+    
+    - name: Checkout Private Repo
+      uses: actions/checkout@v2
+      with:
+        repository: azizyksl/deployment-mani
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Clone Private Repo
+      run: |
+        mkdir deployment-mani
+        cd deployment-mani
+        git clone git@github.com:azizyksl/deployment-mani.git
+        
+   
     - name: Update Image Tag Values
       run: |
         chart_dir="chart"
@@ -54,7 +66,15 @@ jobs:
 
         # Update the values.yaml file with the new image tag
         sed -i "s/^  tag: .*/  tag: $new_image_tag/" "$chart_dir/values.yaml"        
-    
+
+    - name: Update Kubernetes Deployment
+      run: |
+        deployment_file="dev/githubactions.yaml"
+        new_image_tag=${{ github.sha }}
+
+        # Update the Deployment file with the new image tag
+        sed -i "s|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:.*$|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:$new_image_tag|" "githubactions.yaml"
+        
     - name: Commit the changes made
       run: |
         git config --global user.email "azizyksl@gmail.com"

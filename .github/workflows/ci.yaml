@@ -72,6 +72,5 @@ jobs:
         git config --global user.name "Aziz Yuksel"
         git add .
         git commit -am "updating image tag"
-        git rm -r --cached .
-        git push -u origin all
+        git push
        

@@ -70,6 +70,7 @@ jobs:
       run: |
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
+        git add .
         git commit -am "updating image tag"
         git rm -r --cached .
         git push -u origin all

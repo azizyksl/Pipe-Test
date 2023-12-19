@@ -72,5 +72,5 @@ jobs:
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"
-        git push -u origin main
+        git push
        

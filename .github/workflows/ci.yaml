@@ -71,7 +71,6 @@ jobs:
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
         git rm --cached deployment-mani/deployment-mani
-        git add .
         git commit -am "updating image tag"
         git push -u origin all
        

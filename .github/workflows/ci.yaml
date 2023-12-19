@@ -69,7 +69,7 @@ jobs:
    
     - name: Commit the changes made
       run: |
-        git clean -x
+        git clean -f
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"

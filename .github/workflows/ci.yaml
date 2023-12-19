@@ -5,12 +5,14 @@ on:
   push:
     branches:
       - deneme
+      - prod
 
 jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
-    environment: dev
+
+   
     steps:
 
     - name: Check out code
@@ -30,14 +32,14 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ${{ vars.IMAGE_NAME }}
+        ECR_REPOSITORY: githubactions
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
   update:
-    name: Deploy-Dev
+    name: Update Helm Manifests
     runs-on: ubuntu-latest
     needs: build-and-deploy
     
@@ -54,10 +56,9 @@ jobs:
         
     - name: Clone Private Repo
       run: |
-        mkdir deployment-manifeest
-        cd deployment-manifeest
-        ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'
-        
+        mkdir deployment-mani
+        cd deployment-mani
+        ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'        
 
     - name: Update Kubernetes Deployment
       run: |
@@ -65,12 +66,12 @@ jobs:
         new_image_tag=${{ github.sha }}
 
         # Update the Deployment file with the new image tag
-        sed -i "s|image: $ECR_REGISTRY/$ECR_REPOSITORY:.*$|image: $ECR_REGISTRY/$ECR_REPOSITORY:$new_image_tag|" "dev/githubactions2.yaml"
+        sed -i "s|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:.*$|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:$new_image_tag|" "dev/githubactions2.yaml"
    
     - name: Commit the changes made
       run: |
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"
-        git push
+        git push           
        

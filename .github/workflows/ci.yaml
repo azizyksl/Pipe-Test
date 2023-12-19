@@ -68,7 +68,7 @@ jobs:
       run: |
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
-        git add deployment-mani/dev/${{ vars.DEPLOYMENT_FILE_NAME }}
+        git add .
         git commit -m "updating image tag"
         git push
        

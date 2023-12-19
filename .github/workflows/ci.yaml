@@ -54,8 +54,8 @@ jobs:
         
     - name: Clone Private Repo
       run: |
-        mkdir deployment-manifest
-        cd deployment-manifest
+        mkdir deployment-manifestas
+        cd deployment-manifestas
         ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'
         
 
@@ -73,5 +73,4 @@ jobs:
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"
         git push
-        git rm -r --cached deployment-manifest
        

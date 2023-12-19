@@ -70,7 +70,7 @@ jobs:
       run: |
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
-        git add .
+        git add -A
         git commit -am "updating image tag"
         git push
        

@@ -54,8 +54,10 @@ jobs:
         
     - name: Clone Private Repo
       run: |
-        ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'
+        mkdir deployment-mani
         cd deployment-mani
+        ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'
+        
 
     - name: Update Kubernetes Deployment
       run: |

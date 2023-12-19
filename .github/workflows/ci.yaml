@@ -23,7 +23,6 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-1
-        aws-profile: cryptov2
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -32,7 +31,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: githubactions
+        ECR_REPOSITORY: ${{ vars.IMAGE_NAME }}
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -42,23 +41,36 @@ jobs:
     name: Update Helm Manifests
     runs-on: ubuntu-latest
     needs: build-and-deploy
-
+    
+    if: github.ref == 'refs/heads/test'
     steps:
     - name: Check out code
       uses: actions/checkout@v2
-
-    - name: Update Image Tag Values
+    
+    - name: Checkout Private Repo
+      uses: actions/checkout@v2
+      with:
+        repository: azizyksl/deployment-mani
+        ssh-key: ${{ secrets.ACCESS_TOKEN }}
+        
+    - name: Clone Private Repo
       run: |
-        chart_dir="chart"
+        mkdir deployment-manif
+        cd deployment-manif
+        ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'        
+
+    - name: Update Kubernetes Deployment
+      run: |
+        deployment_file="dev/${{ vars.DEPLOYMENT_FILE_NAME }}"
         new_image_tag=${{ github.sha }}
 
-        # Update the values.yaml file with the new image tag
-        sed -i "s/^  tag: .*/  tag: $new_image_tag/" "$chart_dir/values.yaml"        
-    
+        # Update the Deployment file with the new image tag
+        sed -i "s|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/${{ vars.IMAGE_NAME }}:.*$|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/${{ vars.IMAGE_NAME }}:$new_image_tag|" "dev/${{ vars.DEPLOYMENT_FILE_NAME }}"
+   
     - name: Commit the changes made
       run: |
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"
-        git push     
+        git push -f origin main
        

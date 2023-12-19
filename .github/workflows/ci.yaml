@@ -32,7 +32,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: githubactions
+        ECR_REPOSITORY: githubactions2
         IMAGE_TAG: ${{ github.sha }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -67,7 +67,7 @@ jobs:
         new_image_tag=${{ github.sha }}
 
         # Update the Deployment file with the new image tag
-        sed -i "s|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:.*$|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions:$new_image_tag|" "dev/githubactions2.yaml"
+        sed -i "s|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions2:.*$|image: 921225254529.dkr.ecr.eu-west-1.amazonaws.com/githubactions2:$new_image_tag|" "dev/githubactions2.yaml"
    
     - name: Commit the changes made
       run: |

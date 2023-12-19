@@ -71,4 +71,5 @@ jobs:
         git add .
         git commit -m "updating image tag"
         git push
+        git rm --cached deployment-mani
        

@@ -59,11 +59,11 @@ jobs:
 
     - name: Update Kubernetes Deployment
       run: |
-        deployment_file="dev/${{ vars.DEPLOYMENT_FILE_NAME }}"
+        deployment_file="dev/githubactions2.yaml"
         new_image_tag=${{ github.sha }}
 
         # Update the Deployment file with the new image tag
-        sed -i "s|image: $ECR_REGISTRY/$ECR_REPOSITORY:.*$|image: $ECR_REGISTRY/$ECR_REPOSITORY:$new_image_tag|" "dev/${{ vars.DEPLOYMENT_FILE_NAME }}"
+        sed -i "s|image: $ECR_REGISTRY/$ECR_REPOSITORY:.*$|image: $ECR_REGISTRY/$ECR_REPOSITORY:$new_image_tag|" "dev/githubactions2.yaml"
    
     - name: Commit the changes made
       run: |
@@ -71,5 +71,4 @@ jobs:
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"
         git push
-        git rm --cached deployment-mani
        

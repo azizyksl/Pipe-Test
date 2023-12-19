@@ -1,4 +1,4 @@
-..as......# Kodzilla Boilerplate
+as..as......# Kodzilla Boilerplate
 
 ## Bilgisayarınızda Çalıştırın
 

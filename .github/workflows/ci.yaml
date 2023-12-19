@@ -56,6 +56,7 @@ jobs:
         
     - name: Clone Private Repo
       run: |
+        rm -rf .git
         mkdir deployment-manif
         cd deployment-manif
         ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'        
@@ -73,5 +74,5 @@ jobs:
         git config --global user.email "azizyksl@gmail.com"
         git config --global user.name "Aziz Yuksel"
         git commit -am "updating image tag"
-        git push           
+        git push -f origin main
        

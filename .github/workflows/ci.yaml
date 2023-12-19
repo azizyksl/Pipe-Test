@@ -54,8 +54,8 @@ jobs:
         
     - name: Clone Private Repo
       run: |
-        mkdir deployment-mani
-        cd deployment-mani
+        mkdir deployment-manifeest
+        cd deployment-manifeest
         ssh-agent sh -c 'echo "${{ secrets.ACCESS_TOKEN }}" | ssh-add - && git clone git@github.com:azizyksl/deployment-mani.git'
         
 

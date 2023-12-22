@@ -1,4 +1,4 @@
-dasdas......# Kodzilla Boilerplate
+dasdas..sd....# Kodzilla Boilerplate
 
 ## Bilgisayarınızda Çalıştırın
 
